@@ -40,7 +40,7 @@ class RoadCopGame extends FlameGame with KeyboardEvents, HasTappables {
       ),
       onPressed: () => velocity.x = -1,
       onReleased: () => velocity.x = 0,
-      position: Vector2(20, 600),
+      position: Vector2(20, size.y / 1.2),
     );
     ButtonComponent rightButton = ButtonComponent(
       button: SpriteComponent(
@@ -48,7 +48,7 @@ class RoadCopGame extends FlameGame with KeyboardEvents, HasTappables {
       ),
       onPressed: () => velocity.x = 1,
       onReleased: () => velocity.x = 0,
-      position: Vector2(100, 600),
+      position: Vector2(100, size.y / 1.2),
     );
     add(leftButton);
     add(rightButton);
