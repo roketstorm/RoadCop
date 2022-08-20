@@ -5,14 +5,11 @@ import 'package:flame/input.dart';
 import 'package:flame/parallax.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:roadcop/bullet.dart';
 import 'package:roadcop/player.dart';
 
 class RoadCopGame extends FlameGame with KeyboardEvents, HasTappables {
   late final Player player;
-
-  // Player settings
-  final Vector2 velocity = Vector2(0, 0);
-  static const int speed = 200;
 
   @override
   Future<void>? onLoad() async {
@@ -38,29 +35,34 @@ class RoadCopGame extends FlameGame with KeyboardEvents, HasTappables {
       button: SpriteComponent(
         sprite: await Sprite.load('arrow_left.png'),
       ),
-      onPressed: () => velocity.x = -1,
-      onReleased: () => velocity.x = 0,
-      position: Vector2(20, size.y / 1.2),
+      onPressed: () => player.setDirection(-1),
+      onReleased: () => player.setDirection(0),
+      position: Vector2(size.x / 11, size.y / 1.2),
     );
     ButtonComponent rightButton = ButtonComponent(
       button: SpriteComponent(
         sprite: await Sprite.load('arrow_right.png'),
       ),
-      onPressed: () => velocity.x = 1,
-      onReleased: () => velocity.x = 0,
-      position: Vector2(100, size.y / 1.2),
+      onPressed: () => player.setDirection(1),
+      onReleased: () => player.setDirection(0),
+      position: Vector2(size.x / 3.5, size.y / 1.2),
     );
     add(leftButton);
     add(rightButton);
+
+    ButtonComponent shootButton = ButtonComponent(
+      button: SpriteComponent(
+        sprite: await Sprite.load('bullet_button.png'),
+      ),
+      onPressed: _spawnBullet,
+      position: Vector2(size.x / 1.3, size.y / 1.2),
+    );
+    add(shootButton);
   }
 
   @override
   void update(double dt) {
     super.update(dt);
-
-    // Draw movement
-    final displacement = velocity * (speed * dt);
-    player.position.add(displacement);
   }
 
   // Check keyboard events
@@ -72,11 +74,20 @@ class RoadCopGame extends FlameGame with KeyboardEvents, HasTappables {
     final isKeyDown = event is RawKeyDownEvent;
 
     if (event.logicalKey == LogicalKeyboardKey.arrowLeft) {
-      velocity.x = isKeyDown ? -1 : 0;
+      isKeyDown ? player.setDirection(-1) : player.setDirection(0);
     } else if (event.logicalKey == LogicalKeyboardKey.arrowRight) {
-      velocity.x = isKeyDown ? 1 : 0;
+      isKeyDown ? player.setDirection(1) : player.setDirection(0);
     }
 
+    if (event.logicalKey == LogicalKeyboardKey.space) _spawnBullet();
+
     return super.onKeyEvent(event, keysPressed);
+  }
+
+  void _spawnBullet() {
+    Bullet bullet = Bullet(
+      position: player.position,
+    );
+    add(bullet);
   }
 }
