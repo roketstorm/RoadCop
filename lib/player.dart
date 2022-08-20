@@ -1,7 +1,8 @@
+import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
-import 'package:flame/game.dart';
+import 'package:roadcop/enemy.dart';
 
-class Player<T extends FlameGame> extends SpriteComponent with HasGameRef<T> {
+class Player extends SpriteComponent with HasGameRef, CollisionCallbacks {
   final _speed = 200.0;
   double _direction = 0;
 
@@ -14,6 +15,7 @@ class Player<T extends FlameGame> extends SpriteComponent with HasGameRef<T> {
   @override
   Future<void> onLoad() async {
     sprite = await gameRef.loadSprite('player.png');
+    add(RectangleHitbox());
   }
 
   @override
@@ -30,5 +32,13 @@ class Player<T extends FlameGame> extends SpriteComponent with HasGameRef<T> {
 
   void setDirection(double direction) {
     _direction = direction;
+  }
+
+  @override
+  void onCollision(Set<Vector2> intersectionPoints, PositionComponent other) {
+    super.onCollision(intersectionPoints, other);
+    if (other is Enemy) {
+      removeFromParent();
+    }
   }
 }

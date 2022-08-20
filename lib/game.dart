@@ -9,11 +9,14 @@ import 'package:roadcop/bullet.dart';
 import 'package:roadcop/enemy_controller.dart';
 import 'package:roadcop/player.dart';
 
-class RoadCopGame extends FlameGame with KeyboardEvents, HasTappables {
+class RoadCopGame extends FlameGame
+    with KeyboardEvents, HasTappables, HasCollisionDetection {
   late final Player player;
 
   @override
   Future<void>? onLoad() async {
+    add(ScreenHitbox());
+
     // Set scrolling background
     ParallaxComponent road = await ParallaxComponent.load(
       [
@@ -62,11 +65,6 @@ class RoadCopGame extends FlameGame with KeyboardEvents, HasTappables {
       position: Vector2(size.x / 1.3, size.y / 1.2),
     );
     add(shootButton);
-  }
-
-  @override
-  void update(double dt) {
-    super.update(dt);
   }
 
   // Check keyboard events
