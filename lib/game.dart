@@ -6,6 +6,7 @@ import 'package:flame/parallax.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:roadcop/bullet.dart';
+import 'package:roadcop/enemy_controller.dart';
 import 'package:roadcop/player.dart';
 
 class RoadCopGame extends FlameGame with KeyboardEvents, HasTappables {
@@ -30,6 +31,9 @@ class RoadCopGame extends FlameGame with KeyboardEvents, HasTappables {
       position: size / 1.4,
     );
     add(player);
+
+    EnemyController enemyController = EnemyController();
+    add(enemyController);
 
     ButtonComponent leftButton = ButtonComponent(
       button: SpriteComponent(
