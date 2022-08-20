@@ -1,12 +1,13 @@
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flame/game.dart';
+import 'package:flame/input.dart';
 import 'package:flame/parallax.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:roadcop/player.dart';
 
-class RoadCopGame extends FlameGame with KeyboardEvents {
+class RoadCopGame extends FlameGame with KeyboardEvents, HasTappables {
   late final Player player;
 
   // Player settings
@@ -29,9 +30,28 @@ class RoadCopGame extends FlameGame with KeyboardEvents {
 
     // Initialize player
     player = Player(
-      position: size / 2,
+      position: size / 1.4,
     );
     add(player);
+
+    ButtonComponent leftButton = ButtonComponent(
+      button: SpriteComponent(
+        sprite: await Sprite.load('arrow_left.png'),
+      ),
+      onPressed: () => velocity.x = -1,
+      onReleased: () => velocity.x = 0,
+      position: Vector2(20, 600),
+    );
+    ButtonComponent rightButton = ButtonComponent(
+      button: SpriteComponent(
+        sprite: await Sprite.load('arrow_right.png'),
+      ),
+      onPressed: () => velocity.x = 1,
+      onReleased: () => velocity.x = 0,
+      position: Vector2(100, 600),
+    );
+    add(leftButton);
+    add(rightButton);
   }
 
   @override
