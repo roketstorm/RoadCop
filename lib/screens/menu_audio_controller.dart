@@ -5,7 +5,7 @@ MenuAudioController music = MenuAudioController();
 class MenuAudioController {
   void playMenuMusic() {
     FlameAudio.bgm.initialize();
-    FlameAudio.bgm.play('explosion.wav');
+    FlameAudio.bgm.play('main_menu.mp3');
   }
 
   void stopMenuMusic() async {
