@@ -18,7 +18,11 @@ void main() {
   //   },
   // ));
 
-  runApp(const MaterialApp(
-    home: MainMenuScreen(),
+  runApp(MaterialApp(
+    home: const MainMenuScreen(),
+    theme: ThemeData(
+      backgroundColor: Colors.black,
+      scaffoldBackgroundColor: Colors.black,
+    ),
   ));
 }

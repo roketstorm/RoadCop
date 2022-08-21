@@ -87,6 +87,7 @@ class RoadCopGame extends FlameGame
         color: Color.fromRGBO(0, 200, 0, 1.0),
         fontFamily: 'Alarm',
         fontSize: 48,
+        shadows: [Shadow(offset: Offset(3, 3), blurRadius: 0.0)],
       )),
       priority: 1,
     );
@@ -163,5 +164,7 @@ class RoadCopGame extends FlameGame
     // Respawn player
     player.position = size / 1.4;
     add(player);
+
+    overlays.remove('GameOverScreen');
   }
 }
