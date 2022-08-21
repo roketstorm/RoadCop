@@ -4,6 +4,7 @@ import 'package:roadcop/fx/synthwave.dart';
 import 'package:roadcop/game.dart';
 import 'package:roadcop/screens/about_screen.dart';
 import 'package:roadcop/screens/game_over_screen.dart';
+import 'package:roadcop/screens/intro_screen.dart';
 
 class MainMenuScreen extends StatelessWidget {
   const MainMenuScreen({Key? key}) : super(key: key);
@@ -59,16 +60,8 @@ class MainMenuScreen extends StatelessWidget {
                         Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => GameWidget(
-                                      game: RoadCopGame(),
-                                      overlayBuilderMap: {
-                                        'GameOverScreen':
-                                            (ctx, RoadCopGame game) =>
-                                                GameOverScreen(
-                                                  game: game,
-                                                ),
-                                      },
-                                    )));
+                              builder: (context) => const IntroScreen(),
+                            ));
                       },
                       child: const Text(
                         'Start',
