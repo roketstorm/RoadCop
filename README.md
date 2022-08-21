@@ -2,6 +2,8 @@
 
 [![Powered by Flame](https://img.shields.io/badge/Powered%20by-%F0%9F%94%A5-orange.svg)](https://flame-engine.org)
 
+![](https://github.com/roketstorm/roadcop/blob/master/preview.gif)
+
 Midyear 2022 Flame Game Jam entry.
 
 Year 2055. Neo-Miami.
