@@ -103,7 +103,10 @@ class RoadCopGame extends FlameGame
     super.update(dt);
     _scoreText.text = '$score';
 
-    if (!player.isMounted) overlays.add('GameOverScreen');
+    if (!player.isMounted) {
+      _scoreText.removeFromParent();
+      overlays.add('GameOverScreen');
+    }
   }
 
   // Check keyboard events
@@ -181,6 +184,7 @@ class RoadCopGame extends FlameGame
     // Respawn player
     player.position = size / 1.4;
     add(player);
+    add(_scoreText);
 
     overlays.remove('GameOverScreen');
     audioController.playReload();
