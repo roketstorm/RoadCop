@@ -1,19 +1,23 @@
-# roadcop
+# RoadCop 🚓
 
-A new Flutter project.
+[![Powered by Flame](https://img.shields.io/badge/Powered%20by-%F0%9F%94%A5-orange.svg)](https://flame-engine.org)
 
-## Getting Started
+Midyear 2022 Flame Game Jam entry.
 
-This project is a starting point for a Flutter application.
+Year 2055. Neo-Miami.
 
-A few resources to get you started if this is your first Flutter project:
+Roads become dangerous place. Local police department decided to make special forces to prevent attacks inside the city.  Save your city by using heavily equipped RC-vehicle.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Good luck!
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Play!
+
+[https://roketstorm.itch.io/roadcop](https://roketstorm.itch.io/roadcop)
+
+
+Controls: Left, right arrows to move and space to shoot.
+
+## Credits
 
 Fonts: 
 - **Alarm Clock** by David J Patterson
