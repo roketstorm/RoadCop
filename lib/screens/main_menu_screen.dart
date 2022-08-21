@@ -1,9 +1,7 @@
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:roadcop/fx/synthwave.dart';
-import 'package:roadcop/game.dart';
 import 'package:roadcop/screens/about_screen.dart';
-import 'package:roadcop/screens/game_over_screen.dart';
 import 'package:roadcop/screens/intro_screen.dart';
 
 class MainMenuScreen extends StatelessWidget {

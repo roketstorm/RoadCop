@@ -16,9 +16,6 @@ class IntroScreen extends StatelessWidget {
             game: IntroScreenplay(),
           ),
         ),
-        const SizedBox(
-          height: 16,
-        ),
         TextButton(
           onPressed: () {
             Navigator.pushReplacement(

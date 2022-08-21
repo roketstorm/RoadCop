@@ -8,17 +8,6 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   Flame.device.fullScreen();
 
-  // Game launch
-  // final game = RoadCopGame();
-  // runApp(GameWidget(
-  //   game: game,
-  //   overlayBuilderMap: {
-  //     'GameOverScreen': (ctx, RoadCopGame game) => GameOverScreen(
-  //           game: game,
-  //         ),
-  //   },
-  // ));
-
   runApp(MaterialApp(
     // home: const MainMenuScreen(),
     home: FlameSplashScreen(
