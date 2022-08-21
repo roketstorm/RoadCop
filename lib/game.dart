@@ -1,8 +1,12 @@
+import 'dart:math';
+
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flame/game.dart';
 import 'package:flame/input.dart';
 import 'package:flame/parallax.dart';
+import 'package:flame/particles.dart';
+import 'package:flame/sprite.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:roadcop/bullet.dart';
@@ -19,6 +23,8 @@ class RoadCopGame extends FlameGame
   @override
   Future<void>? onLoad() async {
     add(ScreenHitbox());
+
+    await images.load('explosion.png');
 
     // Set scrolling background
     ParallaxComponent road = await ParallaxComponent.load(
@@ -117,5 +123,26 @@ class RoadCopGame extends FlameGame
       position: player.position,
     );
     add(bullet);
+  }
+
+  Particle animationParticle() {
+    return SpriteAnimationParticle(
+      animation: getBoomAnimation(),
+      size: Vector2(64, 64),
+    );
+  }
+
+  SpriteAnimation getBoomAnimation() {
+    const columns = 8;
+    const rows = 1;
+    const frames = columns * rows;
+    final spriteImage = images.fromCache('explosion.png');
+    final spritesheet = SpriteSheet.fromColumnsAndRows(
+      image: spriteImage,
+      columns: columns,
+      rows: rows,
+    );
+    final sprites = List<Sprite>.generate(frames, spritesheet.getSpriteById);
+    return SpriteAnimation.spriteList(sprites, stepTime: 0.1);
   }
 }

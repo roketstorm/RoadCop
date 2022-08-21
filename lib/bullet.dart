@@ -36,6 +36,10 @@ class Bullet<T extends RoadCopGame> extends SpriteComponent
     if (other is Enemy) {
       gameRef.score += 1;
       removeFromParent();
+      gameRef.add(ParticleSystemComponent(
+        particle: gameRef.animationParticle(),
+        position: position,
+      ));
     }
   }
 }

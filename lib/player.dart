@@ -1,8 +1,10 @@
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:roadcop/enemy.dart';
+import 'package:roadcop/game.dart';
 
-class Player extends SpriteComponent with HasGameRef, CollisionCallbacks {
+class Player<T extends RoadCopGame> extends SpriteComponent
+    with HasGameRef<T>, CollisionCallbacks {
   final _speed = 200.0;
   double _direction = 0;
 
@@ -39,6 +41,10 @@ class Player extends SpriteComponent with HasGameRef, CollisionCallbacks {
     super.onCollision(intersectionPoints, other);
     if (other is Enemy) {
       removeFromParent();
+      gameRef.add(ParticleSystemComponent(
+        particle: gameRef.animationParticle(),
+        position: position,
+      ));
     }
   }
 }
