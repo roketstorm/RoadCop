@@ -3,7 +3,7 @@ import 'package:flame/components.dart';
 import 'package:roadcop/bullet.dart';
 
 class Enemy extends SpriteComponent with HasGameRef, CollisionCallbacks {
-  double _speed = 100;
+  final double _speed = 100;
 
   Enemy({super.position, Vector2? size})
       : super(

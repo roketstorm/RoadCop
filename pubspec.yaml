@@ -29,3 +29,9 @@ flutter:
     - family: Alarm
       fonts:
        - asset: assets/fonts/alarm_clock.ttf
+    - family: Arcade
+      fonts:
+       - asset: assets/fonts/arcade.ttf
+    - family: Pointless
+      fonts:
+       - asset: assets/fonts/pointless.ttf

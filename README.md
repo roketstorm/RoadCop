@@ -15,4 +15,9 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
-Font: Alarm Clock by David J Patterson
+Fonts: 
+- **Alarm Clock** by David J Patterson
+- **Pointless** by LukeMans
+- **Arcade** by Yuji Adachi 
+
+
