@@ -53,6 +53,7 @@ void main() {
     theme: ThemeData(
       backgroundColor: Colors.black,
       scaffoldBackgroundColor: Colors.black,
+      primarySwatch: Colors.green,
     ),
   ));
 }

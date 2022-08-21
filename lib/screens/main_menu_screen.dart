@@ -2,6 +2,7 @@ import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:roadcop/fx/synthwave.dart';
 import 'package:roadcop/game.dart';
+import 'package:roadcop/screens/about_screen.dart';
 import 'package:roadcop/screens/game_over_screen.dart';
 
 class MainMenuScreen extends StatelessWidget {
@@ -85,7 +86,13 @@ class MainMenuScreen extends StatelessWidget {
                       height: 16,
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const AboutScreen(),
+                            ));
+                      },
                       child: const Text(
                         'About',
                         style: TextStyle(
