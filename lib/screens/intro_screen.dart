@@ -10,41 +10,43 @@ class IntroScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Flexible(
-          child: GameWidget(
-            game: IntroScreenplay(),
-          ),
-        ),
-        TextButton(
-          onPressed: () {
-            music.stopMenuMusic();
-            Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => GameWidget(
-                    game: RoadCopGame(),
-                    overlayBuilderMap: {
-                      'GameOverScreen': (ctx, RoadCopGame game) =>
-                          GameOverScreen(
-                            game: game,
-                          ),
-                    },
-                  ),
-                ));
-          },
-          child: const Text(
-            'Skip >>',
-            style: TextStyle(
-              color: Color.fromRGBO(0, 200, 0, 1.0),
-              fontFamily: 'Pointless',
-              fontSize: 24,
-              shadows: [Shadow(offset: Offset(5, 5), blurRadius: 0.0)],
+    return Scaffold(
+      body: Column(
+        children: [
+          Flexible(
+            child: GameWidget(
+              game: IntroScreenplay(),
             ),
           ),
-        ),
-      ],
+          TextButton(
+            onPressed: () {
+              music.stopMenuMusic();
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => GameWidget(
+                      game: RoadCopGame(),
+                      overlayBuilderMap: {
+                        'GameOverScreen': (ctx, RoadCopGame game) =>
+                            GameOverScreen(
+                              game: game,
+                            ),
+                      },
+                    ),
+                  ));
+            },
+            child: const Text(
+              'Skip >>',
+              style: TextStyle(
+                color: Color.fromRGBO(0, 200, 0, 1.0),
+                fontFamily: 'Pointless',
+                fontSize: 24,
+                shadows: [Shadow(offset: Offset(5, 5), blurRadius: 0.0)],
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

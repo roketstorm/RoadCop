@@ -135,13 +135,13 @@ class RoadCopGame extends FlameGame
 
   @override
   void onAttach() {
-    // audioController.playMusic();
+    audioController.playMusic();
     super.onAttach();
   }
 
   @override
   void onDetach() {
-    // audioController.stopMusic();
+    audioController.stopMusic();
     super.onDetach();
   }
 
