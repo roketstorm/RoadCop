@@ -1,9 +1,9 @@
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
-import 'package:flame/game.dart';
 import 'package:roadcop/enemy.dart';
+import 'package:roadcop/game.dart';
 
-class Bullet<T extends FlameGame> extends SpriteComponent
+class Bullet<T extends RoadCopGame> extends SpriteComponent
     with HasGameRef<T>, CollisionCallbacks {
   final _speed = 500.0;
 
@@ -34,6 +34,7 @@ class Bullet<T extends FlameGame> extends SpriteComponent
   void onCollision(Set<Vector2> intersectionPoints, PositionComponent other) {
     super.onCollision(intersectionPoints, other);
     if (other is Enemy) {
+      gameRef.score += 1;
       removeFromParent();
     }
   }

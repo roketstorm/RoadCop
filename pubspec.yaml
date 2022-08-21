@@ -25,3 +25,7 @@ flutter:
   assets:
     - assets/audio/
     - assets/images/
+  fonts:
+    - family: Alarm
+      fonts:
+       - asset: assets/fonts/alarm_clock.ttf

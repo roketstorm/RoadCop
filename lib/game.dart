@@ -12,6 +12,9 @@ import 'package:roadcop/player.dart';
 class RoadCopGame extends FlameGame
     with KeyboardEvents, HasTappables, HasCollisionDetection {
   late final Player player;
+  late final TextComponent _scoreText;
+
+  int score = 0;
 
   @override
   Future<void>? onLoad() async {
@@ -45,6 +48,7 @@ class RoadCopGame extends FlameGame
       onPressed: () => player.setDirection(-1),
       onReleased: () => player.setDirection(0),
       position: Vector2(size.x / 11, size.y / 1.2),
+      priority: 1,
     );
     ButtonComponent rightButton = ButtonComponent(
       button: SpriteComponent(
@@ -53,6 +57,7 @@ class RoadCopGame extends FlameGame
       onPressed: () => player.setDirection(1),
       onReleased: () => player.setDirection(0),
       position: Vector2(size.x / 3.5, size.y / 1.2),
+      priority: 1,
     );
     add(leftButton);
     add(rightButton);
@@ -63,8 +68,29 @@ class RoadCopGame extends FlameGame
       ),
       onPressed: _spawnBullet,
       position: Vector2(size.x / 1.3, size.y / 1.2),
+      priority: 1,
     );
     add(shootButton);
+
+    _scoreText = TextComponent(
+      text: '0',
+      position: Vector2(size.x / 1.7, size.y / 1.16),
+      anchor: Anchor.center,
+      textRenderer: TextPaint(
+          style: const TextStyle(
+        color: Color.fromRGBO(0, 200, 0, 1.0),
+        fontFamily: 'Alarm',
+        fontSize: 48,
+      )),
+      priority: 1,
+    );
+    add(_scoreText);
+  }
+
+  @override
+  void update(double dt) {
+    super.update(dt);
+    _scoreText.text = '$score';
   }
 
   // Check keyboard events
