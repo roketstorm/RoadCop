@@ -38,4 +38,9 @@ class EnemyController extends Component with HasGameRef {
     Enemy enemy = Enemy(position: spawnPosition);
     gameRef.add(enemy);
   }
+
+  void resetSpawner() {
+    _timer.stop();
+    _timer.start();
+  }
 }

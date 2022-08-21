@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flame/game.dart';
@@ -10,6 +8,7 @@ import 'package:flame/sprite.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:roadcop/bullet.dart';
+import 'package:roadcop/enemy.dart';
 import 'package:roadcop/enemy_controller.dart';
 import 'package:roadcop/player.dart';
 
@@ -17,6 +16,7 @@ class RoadCopGame extends FlameGame
     with KeyboardEvents, HasTappables, HasCollisionDetection {
   late final Player player;
   late final TextComponent _scoreText;
+  late final EnemyController enemyController;
 
   int score = 0;
 
@@ -44,7 +44,7 @@ class RoadCopGame extends FlameGame
     );
     add(player);
 
-    EnemyController enemyController = EnemyController();
+    enemyController = EnemyController();
     add(enemyController);
 
     ButtonComponent leftButton = ButtonComponent(
@@ -97,6 +97,8 @@ class RoadCopGame extends FlameGame
   void update(double dt) {
     super.update(dt);
     _scoreText.text = '$score';
+
+    if (!player.isMounted) overlays.add('GameOverScreen');
   }
 
   // Check keyboard events
@@ -144,5 +146,22 @@ class RoadCopGame extends FlameGame
     );
     final sprites = List<Sprite>.generate(frames, spritesheet.getSpriteById);
     return SpriteAnimation.spriteList(sprites, stepTime: 0.1);
+  }
+
+  void resetGame() {
+    score = 0;
+    enemyController.resetSpawner();
+
+    children.whereType<Bullet>().forEach((element) {
+      element.removeFromParent();
+    });
+
+    children.whereType<Enemy>().forEach((element) {
+      element.removeFromParent();
+    });
+
+    // Respawn player
+    player.position = size / 1.4;
+    add(player);
   }
 }
