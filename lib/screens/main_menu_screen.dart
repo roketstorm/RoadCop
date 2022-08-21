@@ -115,7 +115,7 @@ class MainMenuScreen extends StatelessWidget {
                 const Padding(
                   padding: EdgeInsets.only(bottom: 16),
                   child: Text(
-                    'Powered by Flame Engine',
+                    'Powered by Flame Engine v.1.2.1',
                     style: TextStyle(
                       color: Color.fromRGBO(0, 200, 0, 1.0),
                       fontFamily: 'Pointless',

@@ -35,13 +35,16 @@ class IntroScreen extends StatelessWidget {
                     ),
                   ));
             },
-            child: const Text(
-              'Skip >>',
-              style: TextStyle(
-                color: Color.fromRGBO(0, 200, 0, 1.0),
-                fontFamily: 'Pointless',
-                fontSize: 24,
-                shadows: [Shadow(offset: Offset(5, 5), blurRadius: 0.0)],
+            child: const Padding(
+              padding: EdgeInsets.all(16),
+              child: Text(
+                'Skip >>',
+                style: TextStyle(
+                  color: Color.fromRGBO(0, 200, 0, 1.0),
+                  fontFamily: 'Pointless',
+                  fontSize: 24,
+                  shadows: [Shadow(offset: Offset(5, 5), blurRadius: 0.0)],
+                ),
               ),
             ),
           ),

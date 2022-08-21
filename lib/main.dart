@@ -12,7 +12,7 @@ void main() {
   music.playMenuMusic();
 
   runApp(MaterialApp(
-    // home: const MainMenuScreen(),
+    debugShowCheckedModeBanner: false,
     home: FlameSplashScreen(
       theme: FlameSplashTheme(
         backgroundDecoration: const BoxDecoration(color: Color(0xFF000000)),
@@ -27,12 +27,15 @@ void main() {
           );
         }),
       ),
-      showAfter: (context) => const Text(
-        'RoketStorm',
-        style: TextStyle(
-          fontFamily: 'Nero',
-          color: Color.fromRGBO(0, 200, 0, 1.0),
-          fontSize: 42,
+      showAfter: (context) => const Material(
+        color: Colors.black,
+        child: Text(
+          'RoketStorm',
+          style: TextStyle(
+            fontFamily: 'Nero',
+            color: Color.fromRGBO(0, 200, 0, 1.0),
+            fontSize: 42,
+          ),
         ),
       ),
       onFinish: (context) => Navigator.pushReplacement(

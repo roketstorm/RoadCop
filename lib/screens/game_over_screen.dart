@@ -20,6 +20,7 @@ class GameOverScreen extends StatelessWidget {
             style: TextStyle(
               color: Color.fromRGBO(0, 200, 0, 1.0),
               fontFamily: 'Arcade',
+              decoration: TextDecoration.none,
               fontSize: 50,
               shadows: [Shadow(offset: Offset(5, 5), blurRadius: 0.0)],
             ),
@@ -34,6 +35,7 @@ class GameOverScreen extends StatelessWidget {
               color: Color.fromRGBO(0, 200, 0, 1.0),
               fontFamily: 'Pointless',
               fontSize: 24,
+              decoration: TextDecoration.none,
               shadows: [Shadow(offset: Offset(5, 5), blurRadius: 0.0)],
             ),
             textAlign: TextAlign.center,
