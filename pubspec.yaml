@@ -13,6 +13,7 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   flame: ^1.2.1
+  flame_splash_screen: ^0.1.0
 
 dev_dependencies:
   flutter_test:
@@ -35,3 +36,6 @@ flutter:
     - family: Pointless
       fonts:
        - asset: assets/fonts/pointless.ttf
+    - family: Nero
+      fonts:
+       - asset: assets/fonts/nero.otf
