@@ -46,6 +46,7 @@ class Player<T extends RoadCopGame> extends SpriteComponent
         particle: gameRef.animationParticle(),
         position: position,
       ));
+      gameRef.audioController.playExplosion();
     }
   }
 }

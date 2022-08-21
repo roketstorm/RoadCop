@@ -7,6 +7,7 @@ import 'package:flame/particles.dart';
 import 'package:flame/sprite.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:roadcop/audio_controller.dart';
 import 'package:roadcop/bullet.dart';
 import 'package:roadcop/enemy.dart';
 import 'package:roadcop/enemy_controller.dart';
@@ -17,6 +18,7 @@ class RoadCopGame extends FlameGame
   late final Player player;
   late final TextComponent _scoreText;
   late final EnemyController enemyController;
+  late final AudioController audioController;
 
   int score = 0;
 
@@ -92,6 +94,8 @@ class RoadCopGame extends FlameGame
       priority: 1,
     );
     add(_scoreText);
+
+    audioController = AudioController();
   }
 
   @override
@@ -126,6 +130,19 @@ class RoadCopGame extends FlameGame
       position: player.position,
     );
     add(bullet);
+    audioController.playShoot();
+  }
+
+  @override
+  void onAttach() {
+    // audioController.playMusic();
+    super.onAttach();
+  }
+
+  @override
+  void onDetach() {
+    // audioController.stopMusic();
+    super.onDetach();
   }
 
   Particle animationParticle() {
@@ -166,5 +183,6 @@ class RoadCopGame extends FlameGame
     add(player);
 
     overlays.remove('GameOverScreen');
+    audioController.playReload();
   }
 }

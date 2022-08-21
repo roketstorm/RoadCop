@@ -2,11 +2,14 @@ import 'package:flame/flame.dart';
 import 'package:flame_splash_screen/flame_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:roadcop/screens/main_menu_screen.dart';
+import 'package:roadcop/screens/menu_audio_controller.dart';
 
 void main() {
   // Game view settings
   WidgetsFlutterBinding.ensureInitialized();
   Flame.device.fullScreen();
+
+  music.playMenuMusic();
 
   runApp(MaterialApp(
     // home: const MainMenuScreen(),
@@ -19,7 +22,7 @@ void main() {
             translation: const Offset(0, -0.25),
             child: ConstrainedBox(
               constraints: BoxConstraints.loose(const Size(300, 300)),
-              child: Image.asset('assets/images/flame_logo_green.png'),
+              child: Image.asset('assets/images/flame_logo_green2.png'),
             ),
           );
         }),

@@ -3,6 +3,7 @@ import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:roadcop/game.dart';
 import 'package:roadcop/screens/game_over_screen.dart';
+import 'package:roadcop/screens/menu_audio_controller.dart';
 
 class IntroScreen extends StatelessWidget {
   const IntroScreen({Key? key}) : super(key: key);
@@ -18,6 +19,7 @@ class IntroScreen extends StatelessWidget {
         ),
         TextButton(
           onPressed: () {
+            music.stopMenuMusic();
             Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
