@@ -1,5 +1,6 @@
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
+import 'package:roadcop/bullet_enemy.dart';
 import 'package:roadcop/enemy.dart';
 import 'package:roadcop/game.dart';
 
@@ -39,7 +40,7 @@ class Player<T extends RoadCopGame> extends SpriteComponent
   @override
   void onCollision(Set<Vector2> intersectionPoints, PositionComponent other) {
     super.onCollision(intersectionPoints, other);
-    if (other is Enemy) {
+    if (other is Enemy || other is BulletEnemy) {
       removeFromParent();
       gameRef.add(ParticleSystemComponent(
         particle: gameRef.animationParticle(),

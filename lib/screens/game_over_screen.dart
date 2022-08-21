@@ -42,7 +42,7 @@ class GameOverScreen extends StatelessWidget {
             height: 32,
           ),
           TextButton(
-            onPressed: () {},
+            onPressed: game.resetGame,
             child: const Text(
               'Retry',
               style: TextStyle(
