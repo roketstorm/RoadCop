@@ -34,7 +34,7 @@ class RoadCopGame extends FlameGame
       ],
       fill: LayerFill.width,
       repeat: ImageRepeat.repeat,
-      baseVelocity: Vector2(0, -200),
+      baseVelocity: Vector2(0, -300),
     );
     add(road);
 

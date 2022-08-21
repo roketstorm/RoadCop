@@ -1,8 +1,6 @@
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:roadcop/fx/synthwave.dart';
-import 'package:flame/flame.dart';
-import 'package:flame/game.dart';
 import 'package:roadcop/game.dart';
 import 'package:roadcop/screens/game_over_screen.dart';
 
@@ -19,7 +17,7 @@ class MainMenuScreen extends StatelessWidget {
               Flexible(
                 child: Container(
                   alignment: Alignment.bottomCenter,
-                  color: Color.fromRGBO(0, 200, 0, 1.0),
+                  color: const Color.fromRGBO(0, 200, 0, 1.0),
                   child: Image.asset(
                     'assets/images/sun.png',
                     fit: BoxFit.fitWidth,
@@ -27,7 +25,7 @@ class MainMenuScreen extends StatelessWidget {
                 ),
               ),
               Flexible(
-                child: Container(
+                child: SizedBox(
                   child: GameWidget(
                     game: Synthwave(),
                   ),
@@ -52,6 +50,9 @@ class MainMenuScreen extends StatelessWidget {
                 const Spacer(),
                 Column(
                   children: [
+                    const SizedBox(
+                      height: 24,
+                    ),
                     TextButton(
                       onPressed: () {
                         Navigator.pushReplacement(

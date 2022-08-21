@@ -43,7 +43,7 @@ void main() {
           fontSize: 42,
         ),
       ),
-      onFinish: (context) => Navigator.push(
+      onFinish: (context) => Navigator.pushReplacement(
         context,
         MaterialPageRoute(
           builder: (context) => const MainMenuScreen(),
