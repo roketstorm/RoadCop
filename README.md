@@ -2,7 +2,7 @@
 
 [![Powered by Flame](https://img.shields.io/badge/Powered%20by-%F0%9F%94%A5-orange.svg)](https://flame-engine.org)
 
-![](https://github.com/roketstorm/roadcop/blob/master/win.gif)
+![](https://github.com/roketstorm/roadcop/blob/master/win.png)
 
 ![](https://github.com/roketstorm/roadcop/blob/master/preview.gif)
 
